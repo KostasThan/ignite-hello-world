@@ -1,0 +1,17 @@
+version: '3'
+services:
+  ignite:
+    image: apacheignite/ignite:latest
+    environment:
+      - OPTION_LIBS=ignite-rest-http
+      - IGNITE_QUIET=true # log in console
+      - IGNITE_MEMORY=512mb
+    #      - IGNITE_CONFIG_URI=file:///ignite/config/example-ignite.xml # if we need config per enviroment
+    volumes:
+      - ./ignite-data:/ignite/work
+    ports:
+      - "10800:10800"
+      - "8080:8080"
+#      - 49112:49112 # more ports can be added
+#volumes:
+#  ignite-data:
